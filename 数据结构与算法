@@ -29,3 +29,28 @@ struct ListNode{
     ListNode(int x):val(x),next(nullptr){} //节点的构造函数
 };
 -链表查询的时间复杂度为O(n),增删的时间复杂夫为O(1)
+
+
+=====哈希表====
+定义：哈希表是根据关键码的值直接进行访问的数据结构，一般用于快速判断元素是否出现在集合里
+实现方式：数组，set(集合),map（映射)
+1.set:   数值不可修改
+-std::set:红黑树实现，有序，数值不可重复，不可改数值，查询效率logn，增删效率logn
+-std::multiset:红黑树实现，有序，数值可重复，不可修改数值，查询效率logn，增删效率logn
+-std::unordered_set：哈希表，无序，不可重复，不可更改，查询、增删效率O(1)
+2.map: 键值对
+-std::map：红黑树实现，key有序，key不可重复，key不可修改，查询、增删效率logn
+-std::multimap：红黑树实现，key有序，key可重复，key不可修改，查询、增删的效率logn
+-std::unordered_map：哈希表，key无序，不可重复不可修改，查询、增删效率O(1)
+
+KMP算法：
+是什么？什么作用？：kmp算法又三个学者发明的由他们的名字首字母命名而来
+                  kmp算法主要用于字符串的匹配，用到了前缀表，先计算前缀表next数组，再根据这个前缀表进行回退字符串的匹配
+如何计算前缀表：前缀表就是next数组，用于就模式串与主串不匹配的时候，模式串应该回退到哪里开始重新匹配
+
+
+string 的erase函数的使用：
+string& erase(size_type index = 0, size_type count = npos);
+
+
+
