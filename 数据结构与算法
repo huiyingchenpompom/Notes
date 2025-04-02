@@ -52,5 +52,24 @@ KMP算法：
 string 的erase函数的使用：
 string& erase(size_type index = 0, size_type count = npos);
 
+=====栈 stack====
+--先进后出
+通过两个栈实现一个队列
+
+=====队列====
+--先进先出
+通过两个队列可以实现一个栈
+
+====树=====
+定义一个二叉树：
+struct TreeNode{
+    int val;
+    TreeNode*left;
+    TreeNode*right;
+    TreeNode(int x):val(x),left(nullptr),right(nullptr){}
+};
+
+
+
 
 
