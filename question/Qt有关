@@ -1,0 +1,62 @@
+为什么用qt？
+-首先qt是跨平台的，同套代码在windows、linux、mac、ios等平台都能运行
+-qt是开源的
+-qui界面组件比较全面，可以编写不同的风格
+
+qt中信号和槽的原理？
+-首先信号和槽是qt的核心机制，主要用于对象间通信
+当一个对象的状态发生了改变，会发出一个信号signal，任何连接到这个信号的槽函数slot都会被调用。类似于设计模式中的观察者模式，类似于发布订阅模式
+信号和槽机制：
+-通过moc生成代码:
+  qt使用moc的工具解析元对象信息，也就是moc读取Q_OBJECT宏，生成相应的元对象代码，包括信号和槽的实现，也就实现了信号和槽的连接
+-类型安全:
+ 信号和槽是类型安全的，如果槽函数参数的类型与信号的参数类型不匹配，编译会报错。
+
+qt的元对象？
+元对象指的是QObject类，所有使用元对象的类都会直接或者间接继承自QObject
+元对象(QMetaObject)是静态的，每个QObject派生类都有一个静态的元对象实例。
+元对象(QMetaObject)在程序启动时创建，程序结束时销毁。
+
+什么是moc？
+Qt框架使用一个叫moc的工具解析元对象的信息，moc会读取Q_OBJECT宏头文件，生成相应的元对象代码，包括信号和槽的实现，就实现了信号和槽的连接
+
+
+有哪些connect函数？
+connect(button, &QPushButton::clicked, this, &MyClass::handleClick);
+connect(button, SIGNAL(clicked()), this, SLOT(handleClick()));
+connect(button, &QPushButton::clicked, [=]() { qDebug() << "Button clicked!"; });
+
+
+qt的样式表(style sheet)?
+
+如何实现自定义绘制？
+Qt中自定义绘制主要通过重写paintEvent()方法并使用QPainter类来实现
+
+举例常用的控件
+QPushButton、QLabel、QLineEdit、QGroupBox 、QTabWidget、QComboBox
+QListWidget、QTableWidget、QTreeWidget、QGraphicsView
+
+qt的事件循环
+程序启动以后QEventLoop就开始一直循环
+通过重写eventFilter过滤鼠标事件、键盘事件、绘制事件、定时器事件、或者是自定义事件
+
+Qt中的常见事件类型包括：
+鼠标事件：QMouseEvent (点击、移动、滚轮)
+键盘事件：QKeyEvent (按键按下、释放)
+绘制事件：QPaintEvent (窗口需要重绘)
+调整大小事件：QResizeEvent (窗口大小变化)
+定时器事件：QTimerEvent (定时器触发)
+焦点事件：QFocusEvent (获取或失去焦点)
+自定义事件：自定义QEvent子类
+
+
+qt里如何自定义事件
+-注册自定义事件类型
+const QEvent::Type MyCustomEventType = static_cast<QEvent::Type>(QEvent::registerEventType());
+-创建自定义事件类
+-发送自定义事件类
+-处理自定义事件
+
+
+
+
