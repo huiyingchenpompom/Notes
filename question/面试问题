@@ -397,6 +397,8 @@ I/O多路复用的瓶颈？
     --c++的iostream库就是提供了缓冲I/O
     --socket的缓冲  就是要尽量减少send和recv的调用，
 
+socket / bind / listen / accept / connect
+
 4.浮点数在内存中是如何表示？
 IEEE 754标准，32位
 在内存中主要由三个部分组成：
